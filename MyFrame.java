@@ -31,6 +31,6 @@ public class MyFrame extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 
-		stage.displayWinner();
+		stage.initiate();
 	}	
 }

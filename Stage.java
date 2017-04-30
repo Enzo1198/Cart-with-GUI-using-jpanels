@@ -51,7 +51,7 @@ public class Stage extends JPanel {
 	* This code runs in the main thread.
 	* Waits for the two threads to finish before displaying the winner.
 	***********************************************************************************************/
-	public void displayWinner(){
+	public void initiate(){
 		try{
 			myCartThread.join();
 			yourCartThread.join();
