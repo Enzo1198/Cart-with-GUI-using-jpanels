@@ -19,7 +19,9 @@ import java.awt.Toolkit;
 ***********************************************************************************************/
 public class Sprite extends JPanel {
 	private Image img;
-	private int xPos, yPos;
+	private int xPos, yPos, xPosInit, yPosInit;
+
+	final static int TOTAL_DISTANCE = 420;
 
 	/**********************************************************************************************
 	* Sprite constructor.
@@ -30,6 +32,8 @@ public class Sprite extends JPanel {
 		this.setSize(500,500);
 		this.xPos = xPos;
 		this.yPos = yPos;
+		this.xPosInit = xPos;
+		this.yPosInit = yPos;
 		this.loadImage(filename);
 	}
 
@@ -52,7 +56,13 @@ public class Sprite extends JPanel {
 	}
 
 	public void incXPos(int distance){
-		this.xPos+=distance;
+		if((this.xPos+=distance)<=TOTAL_DISTANCE) this.xPos+=distance;
+		else this.xPos = this.xPosInit;
+	}
+
+	public void incYPos(int distance){
+		if((this.yPos+=distance)<=TOTAL_DISTANCE) this.yPos+=distance;
+		else this.yPos = this.yPosInit;
 	}
 
 	/**********************************************************************************************

@@ -66,7 +66,7 @@ public class Cart extends Sprite implements Runnable {
 	***********************************************************************************************/
 	@Override
 	public void run(){
-		while(!this.isRaceDone()){
+		while(true){
 			this.move();
 			this.repaint();
 			try {

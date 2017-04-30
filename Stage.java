@@ -19,7 +19,8 @@ import java.awt.Color;
 ***********************************************************************************************/
 public class Stage extends JPanel {
 	private Cart myCart, yourCart;
-	private Thread myCartThread, yourCartThread;	
+	private Pedestrian ped1, ped2;
+	private Thread myCartThread, yourCartThread, ped1Thread, ped2Thread;	
 
 	public Stage(){
 		this.setBackground(Color.BLACK);
@@ -27,15 +28,23 @@ public class Stage extends JPanel {
 
 		myCart = new Cart(0, 100, "myCartThread");
 		yourCart = new Cart(0, 200, "yourCartThread");
+		ped1 = new Pedestrian(300, 0, "ped1Thread");
+		ped2 = new Pedestrian(400, 0, "ped2Thread");
 		
 		myCartThread = new Thread(myCart);
 		yourCartThread = new Thread(yourCart);	
+		ped1Thread = new Thread(ped1);
+		ped2Thread = new Thread(ped2);
 
 		this.add(myCart);
 		this.add(yourCart);
+		this.add(ped1);
+		this.add(ped2);
 
 		myCartThread.start();
 		yourCartThread.start();
+		ped1Thread.start();
+		ped2Thread.start();
 	}
 
 	/**********************************************************************************************
@@ -46,8 +55,10 @@ public class Stage extends JPanel {
 		try{
 			myCartThread.join();
 			yourCartThread.join();
+			ped1Thread.join();
+			ped2Thread.join();
 		} catch(Exception e){}
 
-		System.out.println("*****" + Cart.getWinner().getName() + " WON!*****");
+		// System.out.println("*****" + Cart.getWinner().getName() + " WON!*****");
 	}
 }
