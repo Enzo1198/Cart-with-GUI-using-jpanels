@@ -19,14 +19,13 @@ public class Cart extends Sprite implements Runnable {
 	private static Cart winner;
 
 	private final static int TOTAL_DISTANCE = 420;
-	private final static String ICON = "cart.png";
 
 	/**********************************************************************************************
 	* Cart constructor.
 	* Calls the constructor of the Sprite class and then initializes the remaining attributes.
 	***********************************************************************************************/
-	public Cart(int x, int y, String name){
-		super(x, y, Cart.ICON);
+	public Cart(int x, int y, String name, String icon){
+		super(x, y, icon);
 		this.name = name;
 	}
 

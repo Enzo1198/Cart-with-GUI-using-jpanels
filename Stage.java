@@ -26,10 +26,10 @@ public class Stage extends JPanel {
 		this.setBackground(Color.BLACK);
 		this.setLayout(null);
 
-		myCart = new Cart(0, 100, "myCartThread");
-		yourCart = new Cart(0, 200, "yourCartThread");
-		ped1 = new Pedestrian(300, 0, "ped1Thread");
-		ped2 = new Pedestrian(400, 0, "ped2Thread");
+		myCart = new Cart(0, 100, "myCartThread", "cart.png");
+		yourCart = new Cart(0, 200, "yourCartThread", "cart2.png");
+		ped1 = new Pedestrian(300, 0, "ped1Thread", "pedestrian.png");
+		ped2 = new Pedestrian(400, 0, "ped2Thread", "pedestrian2.png");
 		
 		myCartThread = new Thread(myCart);
 		yourCartThread = new Thread(yourCart);	
@@ -58,7 +58,5 @@ public class Stage extends JPanel {
 			ped1Thread.join();
 			ped2Thread.join();
 		} catch(Exception e){}
-
-		// System.out.println("*****" + Cart.getWinner().getName() + " WON!*****");
 	}
 }
