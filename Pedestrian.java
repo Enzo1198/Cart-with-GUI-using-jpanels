@@ -10,6 +10,7 @@ public class Pedestrian extends Sprite implements Runnable{
 	public Pedestrian(int x, int y, String name, String icon){
 		super(x, y, icon);
 		this.name = name;
+		this.hitByCar = false;
 	}
 
 	public String getName(){
